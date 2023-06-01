@@ -1,0 +1,188 @@
+print ("***********************************************")
+
+#Kelas Mahasiswa
+class Mahasiswa:
+    def __init__(self, nama, nim, jurusan):           #Membuat fungsi def__init untuk mengisih parameter nama, nim, jurusan
+        self.nama = nama                              #Membuat parameter "nama" ke variabel "nama"
+        self.nim = nim                                #Membuat parameter "nim" ke variabel "nim"
+        self.jurusan = jurusan                        #Membuat parameter "jurusan" ke variabel "jurusan"
+    
+    def tampilkan_info(self): 
+        print("Nama: ", self.nama)                    #Cetak nama mahasiswa
+        print("NIM : ", self.nim)                     #Cetak NIM mahasiswa
+        print("Jurusan: ", self.jurusan.NamaJurusan)  #Cetak jurusan mahasiswa
+        
+
+"""
+Kode program di atas merupakan definisi dari kelas "Mahasiswa". Pada kelas Mahasiswa tersebut terdapat tiga atribut yaitu: nama, nim, dan 
+jurusan yang akan diinisialisasi saat objek dibuat melalui fungsi def __init__. Atribut-atribut tersebut merepresentasikan informasi mengenai 
+nama mahasiswa, NIM mahasiswa, dan jurusan mahasiswa. Kemudian, terdapat juga fungsi def tampilkan_info yang digunakan untuk menampilkan informasi 
+mengenai mahasiswa tersebut. Fungsi ini akan mencetak nama, NIM, dan nama jurusan mahasiswa. Dalam fungsi def tampilkan_info, untuk mencetak 
+nama jurusan, digunakan atribut NamaJurusan dari objek jurusan. Hal ini mengasumsikan bahwa atribut jurusan adalah objek yang memiliki 
+atribut NamaJurusan yang menyimpan nama jurusan mahasiswa.
+"""
+
+
+#Kelas Jurusan
+class Jurusan:
+    def __init__(self, nama_jurusan):                           #Membuat fungsi def__init untuk mengisih parameter nama_jurusan
+        self.NamaJurusan = nama_jurusan                         #Membuat parameter "nama_jurusan" ke variabel "NamaJurusan"
+        self.DaftarMahasiswa = []                               #Inisialisasi daftar kosong untuk menyimpan daftar mahasiswa
+        
+    def tambah_mahasiswa(self, mahasiswa):                      #Membuat fungsi def tambah_mahasiswa untuk mengisih parameter mahasiswa
+        self.DaftarMahasiswa.append(mahasiswa)                  #Tambahkan objek "mahasiswa" ke daftar mahasiswa
+        
+    def tampilkan_daftar_mahasiswa(self):                       
+        print("Daftar Mahasiswa di Jurusan", self.NamaJurusan)  #Cetak tajuk untuk daftar siswa di jurusan
+        for mahasiswa in self.DaftarMahasiswa:                  #Membuat perulangan untuk mencetak nama dan nim mahasiswa
+            print("\nNama    :", mahasiswa.nama)                #Cetak nama masing-masing mahasiswa di jurusan tersebut
+            print("NIM     :", mahasiswa.nim)                   #Cetak NIM masing-masing mahasiswa di jurusan tersebut
+     
+            
+"""
+Kode program di atas merupakan definisi dari kelas "Jurusan" yang memiliki beberapa fungsi.Pada fungsi def __init__, terdapat inisialisasi 
+objek dengan parameter nama_jurusan. Di dalam fungsi ini, terdapat dua atribut yaitu NamaJurusan yang merupakan nama jurusan dan DaftarMahasiswa 
+yang berfungsi untuk menyimpan daftar mahasiswa dalam jurusan tersebut. Fungsi def tambah_mahasiswa digunakan untuk menambahkan objek mahasiswa 
+ke dalam atribut DaftarMahasiswa menggunakan fungsi append. Fungsi def tampilkan_daftar_mahasiswa digunakan untuk menampilkan daftar mahasiswa 
+yang ada dalam jurusan tersebut. Fungsi ini akan mencetak nama dan NIM setiap mahasiswa yang terdapat dalam atribut DaftarMahasiswa menggunakan 
+loop for.Dengan menggunakan kelas Jurusan ini, program dapat membuat objek Jurusan baru, menambahkan mahasiswa ke dalamnya, dan menampilkan 
+daftar mahasiswa dalam jurusan tersebut.
+"""
+
+            
+#Kelas Universitas           
+class Universitas:
+    def __init__(self, nama_universitas):                             #Membuat fungsi def__init untuk mengisih parameter nama_universitas
+        self.NamaUniversitas = nama_universitas                       #Membuat parameter "nama_universitas" ke variabel instan "NamaUniversitas"
+        self.DaftarJurusan = []                                       #Menginisialisasi daftar kosong untuk menyimpan daftar jurusan
+    
+    def tambah_jurusan(self, jurusan):
+        self.DaftarJurusan.append(jurusan)                            #Tambahkan objek "jurusan" ke daftar jurusan
+    
+    def tampilkan_daftar_jurusan(self):
+        print("Daftar Jurusan di Universitas", self.NamaUniversitas)  #Cetak tajuk untuk daftar jurusan di universitas
+        for jurusan in self.DaftarJurusan:                            #Membuat perulangan untuk mencetak nama-nama jurusan
+            print("-", jurusan.NamaJurusan)                           #Cetak nama masing-masing jurusan di universitas
+         
+            
+"""
+Kode program di atas merupakan definisi dari kelas "Universitas" yang memiliki beberapa fungsi. Pada fungsi def __init__, terdapat inisialisasi 
+objek dengan parameter nama_universitas. Di dalam fungsi ini, terdapat dua atribut yaitu NamaUniversitas yang merupakan nama universitas dan 
+DaftarJurusan yang berfungsi untuk menyimpan daftar jurusan dalam universitas tersebut. Fungsi def tambah_jurusan digunakan untuk menambahkan objek
+jurusan ke dalam atribut DaftarJurusan menggunakan fungsi append. Fungsi def tampilkan_daftar_jurusan digunakan untuk menampilkan daftar jurusan 
+yang ada dalam universitas tersebut. Fungsi ini akan mencetak nama-nama jurusan yang terdapat dalam atribut DaftarJurusan menggunakan loop for. 
+Dengan menggunakan kelas Universitas ini, Anda dapat membuat objek Universitas baru, menambahkan jurusan ke dalamnya, dan menampilkan daftar 
+jurusan dalam universitas tersebut.
+"""
+
+
+#Objek Universitas dengan nama "XYZ University"
+XYZ_University = Universitas("XYZ University")
+
+#Objek Jurusan dengan nama-nama jurusan yang berbeda tambahkan ke dalam Universitas XYZ
+Teknik_Informatika = Jurusan("Teknik Informatika")
+Teknik_Sipil       = Jurusan ("Teknik Sipil")
+Teknik_Mesin       = Jurusan ("Teknik Mesin")
+Teknik_Elektro     = Jurusan ("Teknik Elektro")
+Arsitektur         = Jurusan ("Arsitektur")
+Sistem_Informasi   = Jurusan ("Sistem Informasi")
+
+#Tambahkan objek jurusan ke dalam Universitas XYZ
+XYZ_University.tambah_jurusan(Teknik_Informatika)
+XYZ_University.tambah_jurusan(Teknik_Sipil)
+XYZ_University.tambah_jurusan(Teknik_Mesin)
+XYZ_University.tambah_jurusan(Teknik_Elektro)
+XYZ_University.tambah_jurusan(Arsitektur)
+XYZ_University.tambah_jurusan(Sistem_Informasi)
+
+
+"""
+Kode program di atas membuat beberapa objek dari kelas "Jurusan" dengan nama-nama yang berbeda, seperti "Teknik Informatika", "Teknik Sipil",
+"Teknik Mesin", "Teknik Elektro", "Arsitektur", dan "Sistem Informasi". Kemudian, objek-objek tersebut ditambahkan ke dalam objek "XYZ_University" 
+yang merupakan objek dari kelas "Universitas". Hal ini dilakukan dengan memanggil fungsi def tambah_jurusan dari objek "XYZ_University" dan 
+memberikan objek jurusan sebagai parameter.Dengan melakukan langkah-langkah di atas, objek "XYZ_University" akan memiliki daftar jurusan yang 
+terdiri dari "Teknik Informatika", "Teknik Sipil", "Teknik Mesin", "Teknik Elektro", "Arsitektur", dan "Sistem Informasi".
+"""
+
+
+#Objek Mahasiswa dengan nama , NIM , dan masukkan ke dalam Jurusan Teknik Informatika di Universitas XYZ
+mahasiswa_baru = Mahasiswa("Federika Butar Butar", "G1A022030",Teknik_Informatika)
+Teknik_Informatika.tambah_mahasiswa(mahasiswa_baru)
+mahasiswa_baru = Mahasiswa("Sinta Ezra Wati Gulo", "G1A02240",Teknik_Informatika)
+Teknik_Informatika.tambah_mahasiswa(mahasiswa_baru)
+mahasiswa_baru = Mahasiswa("Evelyn Eunike Aritonang", "G1A022024",Teknik_Informatika)
+Teknik_Informatika.tambah_mahasiswa(mahasiswa_baru)
+
+#Objek Mahasiswa dengan nama , NIM , dan masukkan ke dalam Jurusan Teknik Sipil di Universitas XYZ
+mahasiswa_baru2 = Mahasiswa("Ferry Angkat", "G1B022022", Teknik_Sipil)
+Teknik_Sipil.tambah_mahasiswa(mahasiswa_baru2)
+mahasiswa_baru2 = Mahasiswa("Dimas", "G1B022012", Teknik_Sipil)
+Teknik_Sipil.tambah_mahasiswa(mahasiswa_baru2)
+mahasiswa_baru2 = Mahasiswa("Eykel", "G1B022002", Teknik_Sipil)
+Teknik_Sipil.tambah_mahasiswa(mahasiswa_baru2)
+
+#Objek Mahasiswa dengan nama , NIM , dan masukkan ke dalam Jurusan Teknik Mesin di Universitas XYZ
+mahasiswa_baru3 = Mahasiswa("Euro Sihite", "G1C022054", Teknik_Mesin)
+Teknik_Mesin.tambah_mahasiswa(mahasiswa_baru3)
+mahasiswa_baru3 = Mahasiswa("Riana Hutasoit", "G1C022016", Teknik_Mesin)
+Teknik_Mesin.tambah_mahasiswa(mahasiswa_baru3)
+mahasiswa_baru3 = Mahasiswa("Riski Hotman", "G1C022036", Teknik_Mesin)
+Teknik_Mesin.tambah_mahasiswa(mahasiswa_baru3)
+
+#Objek Mahasiswa dengan nama , NIM , dan masukkan ke dalam Jurusan Teknik Elektro di Universitas XYZ
+mahasiswa_baru4 = Mahasiswa("Misel Sitorus", "G1D022045", Teknik_Elektro)
+Teknik_Elektro.tambah_mahasiswa(mahasiswa_baru4)
+mahasiswa_baru4 = Mahasiswa("Cadila Panjaitan", "G1D022021", Teknik_Elektro)
+Teknik_Elektro.tambah_mahasiswa(mahasiswa_baru4)
+
+#Objek Mahasiswa dengan nama , NIM , dan masukkan ke dalam Jurusan Arsitektur di Universitas XYZ
+mahasiswa_baru5 = Mahasiswa("Anggi", "G1E022034", Arsitektur)
+Arsitektur.tambah_mahasiswa(mahasiswa_baru5)
+
+#Objek Mahasiswa dengan nama , NIM , dan masukkan ke dalam Jurusan Sistem Informasi di Universitas XYZ
+mahasiswa_baru6 = Mahasiswa("Yosua", "G1F022025", Sistem_Informasi)
+Sistem_Informasi.tambah_mahasiswa(mahasiswa_baru6)
+mahasiswa_baru6 = Mahasiswa("Erika Manik", "G1F022026", Sistem_Informasi)
+Sistem_Informasi.tambah_mahasiswa(mahasiswa_baru6)
+mahasiswa_baru6 = Mahasiswa("Glori Sitorus", "G1F022018", Sistem_Informasi)
+Sistem_Informasi.tambah_mahasiswa(mahasiswa_baru6)
+
+
+"""
+Kode program di atas membuat beberapa objek "Mahasiswa" dengan nama dan NIM yang berbeda, serta memasukkannya ke dalam objek 
+jurusan yang sesuai di dalam objek universitas "XYZ_University". Untuk setiap objek mahasiswa, dilakukan langkah-langkah berikut:
+1. Objek mahasiswa baru dibuat dengan nama dan NIM yang sesuai, serta menentukan jurusan yang akan ditambahkan.
+2. Objek mahasiswa baru ditambahkan ke dalam daftar mahasiswa pada objek jurusan yang sesuai menggunakan fungsi def tambah_mahasiswa.
+Langkah-langkah tersebut diulang untuk setiap mahasiswa yang ingin ditambahkan ke dalam jurusan yang sesuai.Dengan melalui langkah-langkah 
+tersebut, mahasiswa-mahasiswa tersebut akan ditambahkan ke dalam daftar mahasiswa pada masing-masing jurusan yang sesuai di dalam objek 
+universitas "XYZ_University".
+"""
+
+
+#Tampilkan daftar jurusan yang ada di Universitas XYZ
+XYZ_University.tampilkan_daftar_jurusan()
+
+print ("================================================")
+
+#Tampilkan daftar mahasiswa yang terdaftar dalam Jurusan yang ada di Universitas XYZ
+Teknik_Informatika.tampilkan_daftar_mahasiswa()
+print ("================================================")
+Teknik_Sipil.tampilkan_daftar_mahasiswa()
+print ("================================================")
+Teknik_Mesin.tampilkan_daftar_mahasiswa()
+print ("================================================")
+Teknik_Elektro.tampilkan_daftar_mahasiswa()
+print ("================================================")
+Arsitektur.tampilkan_daftar_mahasiswa()
+print ("================================================")
+Sistem_Informasi.tampilkan_daftar_mahasiswa()
+
+
+"""
+Kode program di atas menampilkan daftar mahasiswa yang terdaftar dalam masing-masing jurusan di Universitas XYZ. Langkah-langkah yang dilakukan 
+yaitu: memanggil fungsi def tampilkan_daftar_mahasiswa() pada objek "Teknik_Informatika" akan mencetak daftar mahasiswa yang terdaftar dalam jurusan 
+Teknik Informatika di Universitas XYZ. Setelah itu, dilakukan pemisahan dengan garis pembatas menggunakan print("================================")
+Langkah-langkah tersebut diulang untuk masing-masing objek jurusan yaitu "Teknik_Sipil", "Teknik_Mesin", "Teknik_Elektro", "Arsitektur", dan 
+"Sistem_Informasi".Dengan demikian, setelah menjalankan kode program ini, akan ditampilkan daftar mahasiswa yang terdaftar dalam masing-masing 
+jurusan di Universitas XYZ secara terpisah.
+"""
